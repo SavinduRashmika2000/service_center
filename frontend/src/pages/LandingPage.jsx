@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import PainPoints from '../components/PainPoints';
+import HowItWorks from '../components/HowItWorks';
 import FeatureCards from '../components/FeatureCards';
 import Stats from '../components/Stats';
-import DashboardPreview from '../components/DashboardPreview';
+import Testimonials from '../components/Testimonials';
+import CallToAction from '../components/CallToAction';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
@@ -24,9 +27,12 @@ const LandingPage = () => {
       <Navbar toggleTheme={toggleTheme} isDark={isDark} />
       <main>
         <Hero />
+        <PainPoints />
+        <HowItWorks />
         <FeatureCards />
         <Stats />
-        <DashboardPreview />
+        <Testimonials />
+        <CallToAction />
       </main>
       <Footer />
     </div>
