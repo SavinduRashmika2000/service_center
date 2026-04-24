@@ -1,29 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  body {
-    @apply bg-lightBg text-slate-800 transition-colors duration-300;
-  }
-  
-  .dark body {
-    @apply bg-darkBg text-slate-200;
-  }
+@theme {
+  --color-primary: #3B82F6;
+  --color-darkBg: #0F172A;
+  --color-darkCard: #1E293B;
+  --color-lightBg: #F8FAFC;
+  --color-lightCard: #FFFFFF;
+  --font-sans: 'Inter', sans-serif;
 }
 
-@layer components {
-  .glass-card {
-    @apply bg-white/70 dark:bg-darkCard/70 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm dark:shadow-none transition-all;
-  }
-  
-  .btn-primary {
-    @apply bg-primary hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition-all shadow-md hover:shadow-lg;
-  }
+/* Base styles */
+body {
+  background-color: var(--color-lightBg);
+  color: #1e293b;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: var(--font-sans);
+}
 
-  .btn-outline {
-    @apply border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium py-2 px-6 rounded-lg transition-all;
-  }
+.dark body {
+  background-color: var(--color-darkBg);
+  color: #e2e8f0;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(51, 65, 85, 0.8);
+  box-shadow: none;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .btn-outline {
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+.dark .btn-outline:hover {
+  background-color: #1f2937;
 }

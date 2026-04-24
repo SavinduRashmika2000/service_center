@@ -1,78 +1,85 @@
 import React from 'react';
-import { CarFront, Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { CarFront, Globe, MessageCircle, Camera, Share2, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-darkCard border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+    <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <CarFront className="text-primary h-8 w-8" />
-              <span className="text-2xl font-bold tracking-tight">
-                AutoCare <span className="text-primary">Pro</span>
+            <div className="flex items-center gap-2 mb-5">
+              <CarFront className="text-blue-500 h-7 w-7" />
+              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                AutoCare <span className="text-blue-500">Pro</span>
               </span>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">
               The all-in-one platform to manage your car service business efficiently. Trusted by hundreds of garages worldwide.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
+            <div className="flex space-x-3">
+              {[Globe, MessageCircle, Camera, Share2].map((Icon, i) => (
+                <a key={i} href="#" className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-bold text-base mb-5 text-slate-900 dark:text-white">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#features" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Features</a></li>
-              <li><a href="#modules" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Modules</a></li>
-              <li><a href="#pricing" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Pricing</a></li>
-              <li><a href="#contact" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+              {['Home', 'Features', 'Modules', 'Pricing', 'Contact'].map(item => (
+                <li key={item}>
+                  <a href={`#${item.toLowerCase()}`} className="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors text-sm">
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Legal</h4>
+            <h4 className="font-bold text-base mb-5 text-slate-900 dark:text-white">Legal</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors">Cookie Policy</a></li>
+              {['Terms of Service', 'Privacy Policy', 'Cookie Policy'].map(item => (
+                <li key={item}>
+                  <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors text-sm">
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact Us</h4>
+            <h4 className="font-bold text-base mb-5 text-slate-900 dark:text-white">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-gray-600 dark:text-gray-400">123 Auto Avenue, Tech Park, NY 10001</span>
+                <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+                <span className="text-slate-500 dark:text-slate-400 text-sm">123 Auto Avenue, Tech Park, NY 10001</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</span>
+                <Phone className="w-4 h-4 text-blue-500 shrink-0" />
+                <span className="text-slate-500 dark:text-slate-400 text-sm">+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-gray-600 dark:text-gray-400">support@autocarepro.com</span>
+                <Mail className="w-4 h-4 text-blue-500 shrink-0" />
+                <span className="text-slate-500 dark:text-slate-400 text-sm">support@autocarepro.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-400 text-sm">
             &copy; {new Date().getFullYear()} AutoCare Pro. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm text-gray-500">
-            Made with <span className="text-red-500">❤️</span> for auto businesses.
+          <div className="flex items-center gap-1 text-sm text-slate-400">
+            Made with <span className="text-red-500 mx-1">❤️</span> for auto businesses.
           </div>
         </div>
       </div>

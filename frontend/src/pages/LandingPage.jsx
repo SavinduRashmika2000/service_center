@@ -7,10 +7,8 @@ import DashboardPreview from '../components/DashboardPreview';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
-  // Theme state
   const [isDark, setIsDark] = useState(true);
 
-  // Apply theme on initial load and when state changes
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
@@ -19,12 +17,10 @@ const LandingPage = () => {
     }
   }, [isDark]);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
+  const toggleTheme = () => setIsDark(prev => !prev);
 
   return (
-    <div className="min-h-screen font-sans selection:bg-primary/30">
+    <div className="min-h-screen font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <Navbar toggleTheme={toggleTheme} isDark={isDark} />
       <main>
         <Hero />
