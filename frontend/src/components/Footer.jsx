@@ -1,34 +1,27 @@
 import React from 'react';
-import { Settings, Phone, Mail, MapPin, Globe, MessageCircle, Camera, Share2 } from 'lucide-react';
+import { Car, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-  const quickLinks = ['Home', 'Features', 'Pricing', 'About Us', 'Contact'];
-  const featureLinks = ['Customer Management', 'Service Management', 'Inventory Management', 'Billing & Invoicing', 'Reports & Analytics'];
-  const supportLinks = ['Help Center', 'Documentation', 'Privacy Policy', 'Terms & Conditions'];
-
   return (
-    <footer className="bg-[#111827] text-slate-300 pt-16 pb-8 mt-8">
+    <footer className="bg-slate-900 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #3B82F6, #1D4ED8)' }}>
-                <Settings className="w-5 h-5 text-white" />
+          <div className="md:col-span-1">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600 text-white">
+                <Car className="w-6 h-6" />
               </div>
-              <div className="leading-tight">
-                <div className="text-sm font-bold text-blue-400 tracking-tight">MIND</div>
-                <div className="text-[10px] font-semibold text-slate-500 tracking-widest uppercase -mt-0.5">Service Center</div>
-              </div>
+              <div className="text-xl font-bold text-white tracking-tight">Mind Service Center</div>
             </div>
-            <p className="text-sm text-slate-500 leading-relaxed mb-6">
-              The all-in-one platform to manage your car service business efficiently and grow faster.
+            <p className="text-slate-400 leading-relaxed mb-8">
+              Trusted car care for every journey. Professional service, certified mechanics, and affordable prices.
             </p>
-            <div className="flex gap-3">
-              {[Globe, MessageCircle, Camera, Share2].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
-                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-white" />
+            <div className="flex gap-4">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
+                  <Icon className="w-4 h-4 text-slate-300" />
                 </a>
               ))}
             </div>
@@ -36,69 +29,61 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-bold text-white mb-5">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map(link => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm text-slate-500 hover:text-blue-400 transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Features + Support */}
-          <div>
-            <h4 className="text-sm font-bold text-white mb-5">Features</h4>
-            <ul className="space-y-3">
-              {featureLinks.map(link => (
-                <li key={link}>
-                  <a href="#features" className="text-sm text-slate-500 hover:text-blue-400 transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <h4 className="text-sm font-bold text-white mt-6 mb-4">Support</h4>
-            <ul className="space-y-3">
-              {supportLinks.map(link => (
-                <li key={link}>
-                  <a href="#" className="text-sm text-slate-500 hover:text-blue-400 transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold text-white mb-5">Contact Us</h4>
+            <h4 className="text-lg font-bold text-white mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-500">+91 98765 43210</span>
+              {['Home', 'Services', 'About Us', 'Contact', 'Book Appointment'].map(link => (
+                <li key={link}>
+                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="text-slate-400 hover:text-blue-400 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">Our Services</h4>
+            <ul className="space-y-4">
+              {['Oil Change', 'Engine Repair', 'Brake Service', 'Car Wash', 'Battery Check'].map(link => (
+                <li key={link}>
+                  <a href="#services" className="text-slate-400 hover:text-blue-400 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Hours */}
+          <div>
+            <h4 className="text-lg font-bold text-white mb-6">Opening Hours</h4>
+            <ul className="space-y-4 text-slate-400">
+              <li className="flex justify-between">
+                <span>Monday - Friday</span>
+                <span className="text-white font-medium">8:00 AM - 6:00 PM</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-500">support@mindservice.in</span>
+              <li className="flex justify-between">
+                <span>Saturday</span>
+                <span className="text-white font-medium">9:00 AM - 4:00 PM</span>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-500">123, Auto Street, Chennai,<br />Tamil Nadu, India - 600001</span>
+              <li className="flex justify-between">
+                <span>Sunday</span>
+                <span className="text-blue-400 font-medium">Closed</span>
               </li>
             </ul>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-slate-600 text-sm">
+        {/* Bottom */}
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500">
             &copy; {new Date().getFullYear()} Mind Service Center. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-sm text-slate-600">
-            Made with <span className="text-red-500 mx-1">❤️</span> for service businesses.
+          <div className="flex gap-6 text-sm text-slate-500">
+            <a href="#" className="hover:text-blue-400">Privacy Policy</a>
+            <a href="#" className="hover:text-blue-400">Terms of Service</a>
           </div>
         </div>
       </div>

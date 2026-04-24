@@ -1,38 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import PainPoints from '../components/PainPoints';
-import HowItWorks from '../components/HowItWorks';
-import FeatureCards from '../components/FeatureCards';
-import Stats from '../components/Stats';
-import Testimonials from '../components/Testimonials';
+import Services from '../components/Services';
+import WhyChooseUs from '../components/WhyChooseUs';
+import VisualTrust from '../components/VisualTrust';
 import CallToAction from '../components/CallToAction';
+import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
-  const [isDark, setIsDark] = useState(false); // Light mode default
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark(prev => !prev);
-
   return (
-    <div className="min-h-screen font-sans bg-[#F9FAFB] dark:bg-slate-950 text-[#111827] dark:text-slate-100 transition-colors duration-300">
-      <Navbar toggleTheme={toggleTheme} isDark={isDark} />
+    <div className="min-h-screen font-sans bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      <Navbar />
       <main>
         <Hero />
-        <PainPoints />
-        <HowItWorks />
-        <FeatureCards />
-        <Stats />
-        <Testimonials />
+        <Services />
+        <WhyChooseUs />
+        <VisualTrust />
         <CallToAction />
+        <Contact />
       </main>
       <Footer />
     </div>
