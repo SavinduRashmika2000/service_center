@@ -1,79 +1,76 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Wrench, Package, UserCircle, Receipt, Navigation } from 'lucide-react';
+import { Users, Wrench, Package, UserCircle, Receipt, BarChart2 } from 'lucide-react';
 
 const features = [
   {
+    icon: <Users className="w-7 h-7 text-blue-600" />,
+    iconBg: 'bg-blue-50 dark:bg-blue-900/30',
     title: 'Customer Management',
-    description: 'Manage customer profiles, vehicles, service history, and loyalty points.',
-    icon: <Users className="w-6 h-6 text-blue-500" />,
-    iconBg: 'bg-blue-100 dark:bg-blue-900/30',
+    desc: 'Manage customer profiles, vehicles, service history and communication in one place.',
   },
   {
+    icon: <Wrench className="w-7 h-7 text-green-600" />,
+    iconBg: 'bg-green-50 dark:bg-green-900/30',
     title: 'Service Management',
-    description: 'Create service orders, assign mechanics, track progress, and manage service types.',
-    icon: <Wrench className="w-6 h-6 text-green-500" />,
-    iconBg: 'bg-green-100 dark:bg-green-900/30',
+    desc: 'Create service orders, assign staff, track progress and ensure timely delivery.',
   },
   {
-    title: 'Stock Management',
-    description: 'Track spare parts inventory, receive stock, low stock alerts, and suppliers.',
-    icon: <Package className="w-6 h-6 text-orange-500" />,
-    iconBg: 'bg-orange-100 dark:bg-orange-900/30',
+    icon: <Package className="w-7 h-7 text-orange-500" />,
+    iconBg: 'bg-orange-50 dark:bg-orange-900/30',
+    title: 'Inventory Management',
+    desc: 'Track spare parts, manage stock levels, get low stock alerts and never run out of essentials.',
   },
   {
+    icon: <UserCircle className="w-7 h-7 text-purple-600" />,
+    iconBg: 'bg-purple-50 dark:bg-purple-900/30',
     title: 'Staff Management',
-    description: 'Manage staff profiles, roles, attendance, and performance efficiently.',
-    icon: <UserCircle className="w-6 h-6 text-purple-500" />,
-    iconBg: 'bg-purple-100 dark:bg-purple-900/30',
+    desc: 'Manage staff roles, schedules, performance and payroll efficiently.',
   },
   {
-    title: 'Billing & Payments',
-    description: 'Generate invoices, manage payments, due amounts, and financial reports.',
-    icon: <Receipt className="w-6 h-6 text-pink-500" />,
-    iconBg: 'bg-pink-100 dark:bg-pink-900/30',
+    icon: <Receipt className="w-7 h-7 text-pink-600" />,
+    iconBg: 'bg-pink-50 dark:bg-pink-900/30',
+    title: 'Billing & Invoicing',
+    desc: 'Generate invoices, track payments, manage discounts and get paid faster.',
   },
   {
-    title: 'Vehicle Tracking',
-    description: 'Link multiple vehicles to customers and track service milestones and history.',
-    icon: <Navigation className="w-6 h-6 text-indigo-500" />,
-    iconBg: 'bg-indigo-100 dark:bg-indigo-900/30',
+    icon: <BarChart2 className="w-7 h-7 text-teal-600" />,
+    iconBg: 'bg-teal-50 dark:bg-teal-900/30',
+    title: 'Reports & Analytics',
+    desc: 'Get insights into your business with detailed reports and beautiful analytics.',
   },
 ];
 
 const FeatureCards = () => {
   return (
-    <section id="modules" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header */}
       <div className="text-center mb-16">
-        <p className="text-blue-500 font-semibold tracking-widest uppercase text-sm mb-3">Core Modules</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-          Everything You Need to Run Your Garage
+        <p className="text-blue-600 font-semibold tracking-widest uppercase text-xs mb-3">Powerful Features</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#111827] dark:text-white mb-4">
+          Everything You Need to Manage<br className="hidden md:block" /> Your Service Business
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Powerful modules to streamline your car service business operations from entry to exit.
+        <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+          Powerful tools to streamline operations and deliver better customer service.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((feature, index) => (
+      {/* Cards */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((f, i) => (
           <motion.div
-            key={index}
+            key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="glass-card p-8 group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-pointer"
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="group bg-white dark:bg-slate-800 rounded-2xl p-7 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer"
           >
-            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${feature.iconBg} group-hover:scale-110 transition-transform duration-300`}>
-              {feature.icon}
+            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${f.iconBg} group-hover:scale-110 transition-transform duration-300`}>
+              {f.icon}
             </div>
-            <h4 className="text-xl font-bold mb-3 text-slate-800 dark:text-white">{feature.title}</h4>
-            <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed">
-              {feature.description}
-            </p>
-            <a href="#" className="text-blue-500 font-medium flex items-center gap-1 hover:gap-3 transition-all text-sm">
-              Learn More <span>→</span>
-            </a>
+            <h4 className="text-base font-bold text-[#111827] dark:text-white mb-2">{f.title}</h4>
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{f.desc}</p>
           </motion.div>
         ))}
       </div>

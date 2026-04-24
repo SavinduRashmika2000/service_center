@@ -7,7 +7,7 @@ import DashboardPreview from '../components/DashboardPreview';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false); // Light mode default
 
   useEffect(() => {
     if (isDark) {
@@ -20,7 +20,7 @@ const LandingPage = () => {
   const toggleTheme = () => setIsDark(prev => !prev);
 
   return (
-    <div className="min-h-screen font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen font-sans bg-[#F9FAFB] dark:bg-slate-950 text-[#111827] dark:text-slate-100 transition-colors duration-300">
       <Navbar toggleTheme={toggleTheme} isDark={isDark} />
       <main>
         <Hero />
