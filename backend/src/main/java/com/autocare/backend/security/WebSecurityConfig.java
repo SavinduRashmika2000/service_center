@@ -23,7 +23,7 @@ import java.util.Arrays;
 @EnableMethodSecurity
 public class WebSecurityConfig {
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    org.springframework.security.core.userdetails.UserDetailsService userDetailsService;
 
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
